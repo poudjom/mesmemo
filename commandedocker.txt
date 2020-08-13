@@ -1,0 +1,8 @@
+## Connaitre la version de docker installée
+docker --versioon
+
+## liste de image docker présente sur la machine
+docker image ls
+
+## Liste des images docker qui existe après leur exécution
+docker ps -- all

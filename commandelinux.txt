@@ -1,0 +1,150 @@
+## Afficher le chemin du dossier où on se trouve
+pwd (Print work directory)
+
+## Localiser la position du programme correspondant à une commande
+Whitch
+
+## LISTER LES FICHIER D'UN DOSSIER
+ls (ls -larth)
+	-a : afficher tous les fichiers et dossiers cachés
+	-F : indique le type d'élément
+	-l : liste détaillée
+	-h : afficher la taille en Ko, Mo, Go…
+	-t : trier par date de dernière modification
+	-i : Affichier le numéro de l'inode
+	
+## TAILLE D'UN FICHIER SUR LE DISQUE
+du: taille occupée par les dossiers
+	-h : la taille pour les humains
+	-a : afficher la taille des dossiers ET des fichiers
+	-s : avoir juste le grand total
+	
+## afficher tout le contenu d'un fichier dans la console d'un coup.
+cat
+	-n permet d'afficher les numéros de ligne
+	
+## afficher le fichier page par page
+less
+	- tapez/suivi du texte que vous recherchez pour lancer le mode recherche. 			FaitesEntréepour valider. La touchenvous permet d'aller à la prochaine 			occurrence de votre recherche. C'est un peu comme si vous cliquiez sur le bouton 			«Résultat suivant ».
+	
+## Afficher le début du fichier
+head
+	-n : nombre de ligne à afficher
+	
+## Afficher la fin du fichier
+tail
+	-n : nombre de ligne à afficher
+	-f : affiche de modifications du fichier eb temps réel
+	-s : permet d'indiquer le nombre de secondes après lesquelles l'affichage du fichier
+		est mise à jour
+		
+## CREER UN FICHIER 
+touch
+
+## CREER UN REPERTOIRE
+mkdir
+	-p creer de dossiers contenant des sous dossiers (Exemple mkdir -p animaux/sauvages/lions
+
+## COPIER UN FICHIER OU REPERTOIRE
+cp
+	-R (Copie recussive - permet de copier des repertoires et des sous repertoiires les contenant)
+
+## DEPLACER OU RENOMMER DES FICHIES ET DES REPERTOIRES
+mv
+
+## SUPPRIMER DES FICHIER
+rm
+	-i : DEMANDER LA CONFIRMATION AVANT SUPPRESSION
+	-f : SUPPRIMER LE FICHIER QUOI QU'IL ARRRIVE 
+	-v : DIS CE QUE TU ES EN TRAIN DE FAIRE
+	-r : SUPPRIME LE REPERTOIRE
+	
+	
+## CREER DES LIENS PHYSIQUES ET SYMBOLIQUES SUR DES FICHIERS ET DE REPERTOIRES
+ln 
+	-s : Creer un lien symbolique
+	
+## SE CONNECTER EN TANT SUPER UTILISATEUR ET LE RESTER
+sudo su
+
+## CREER UN NOUVEL UTILISATEUR 
+adduser [nom de l'utilisateur]
+
+## MODIFIER LE MOT DE PASSE D'UN UTILISATEUR
+passwd [nom de l'utilisateur]
+
+## SUPPRIMER UN COMPTE UTILISATEUR
+deluser [nom de l'utilisateur] (SUPPRIMER UN COMPTE AVEC LE REPERTOIRE PERSONNEL EGALEMENT = deluser --remove-home [nom de l'utilisateur])
+
+
+
+## CREER UN GROUPE D'UTILISATEURS
+addgroup [nom du groupe]
+
+## MODIFIER UN UTILISATEUR
+usermod
+	-i : renommer un utilisateur
+	-g : changer le groupe d'un utilisateur (Exemple: usermod -g amis ghislain =- avec amis comme le nouveau groupe auquel 			d'appartenance et ghislain le nom d'utilisateur)
+	-G : permet de mettre un utilisateur dans plusieurs groupe (Exemple: usermod -G amis,famille  ghislain =- avec amis et famille 			comme le nouveau groupe auquel d'appartenance et ghislain le nom d'utilisateur)
+	-aG : Ajouter de groupes à un utilisateur sans perdre le groupe auquel il appartenait avant (Exemple: usermod -aG amis ghislain)
+	
+## SUPPRIMER UN GROUPE
+delgroup
+
+## CHANGER LE PROPRIÉTAIRE D'UN FICHIER
+chown (Exemple: chown ghislain file.txt)
+      (Exemple 2: chown ghislain: amis file.txt =- Changer le groupe et le propriétaire d'un fichier)
+      -R : Changement récursif du propriétaire
+      
+## CHANGER LE GROUPE D'UN FICHIER)
+chgrp (Exemple: chgrp amis file.txt)
+	
+## MODIFIER DES DROITS SUR DES FICHIERS/DOSSIERS
+chmod (r=4, w=2, x=1)
+
+## MODIFIER LA CONFIGURATION DU BASH GLOBAL
+/etc/bash.bashrc
+
+# Installation des paquets 
+
+apt-get update : pour mettre notre cache à jour si ce n'est pas déjà fait (on le fait soit quand vous changez ou ajoutez un dépôt à votre 			liste de dépôts, soit quand vous n'avez pas mis à jour votre cache depuis un moment) ;
+
+apt-cache search monpaquet : pour rechercher le paquet que nous voulons télécharger si nous ne connaissons pas son nom exact ;
+
+apt-get install monpaquet : pour télécharger et installer notre paquet.
+
+## POUR SUPPRIMER UN PAQUET
+apt-get remove [nom du paquet] (Cette commande ne supprime pas les dépendances liées au paquet)
+apt-get autoremove [nom du paquet] (Cette commande supprime les dépendances liées au paquet)
+
+## METTRE A JOUR LES PAQUETS
+apt-get upgrate
+
+## POUR OBTENIR DE L'AIDE SUR UNE COMMANDE LINUX
+man [nom_de_la commande]
+mkdir -h
+mkdir --help
+whatis mkdir
+
+## POUR RECHERCHER UNE COMMANDE LINUX
+apropos [un texte qu'on  suppose appartenr à cette commande]
+
+## Rechercher des fichiers sur le pc
+locate [Nom du fichier] =- la commande recherche dans la base de données des fichiers de l'ordinateur
+
+updatedb =- pour mettre à jour le base de données des fichiers
+
+find -name note.txt
+find / -size [+-]10M
+find / -name note.txt -atime [-+ ]6 [Fichier note.txt modifié il y'a moins de 6 jours]
+	- type -d ( Recherche uniquement des repertoires)
+	- type -f (Recherche uniquement des fichiers)
+	- find   -name "*.jpg" -exec chmod 600 {} \;
+
+
+##Rechercher des mots dans un fichier
+grep texte_rechercher fichier
+	-i : ne pas tenir compte de la casse
+	-n : Afficher le numero de la ligne
+	-v : inverser la recherche
+	-r :rechercher dans tous les fichiers contenus dans le dossier et les sous dossiers précisés en paramètre

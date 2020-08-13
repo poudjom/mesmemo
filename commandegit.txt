@@ -1,0 +1,133 @@
+######
+git config --global user.name "Aristide POUDJOM"
+######
+git config --global user.email poudjom@gmail.com
+
+######## Affiche la liste de paramétres dont l'user name et l'email #######
+git config --list
+
+######## il est recommandé d’activer les couleurs afin d’améliorer la lisibilité des différentes branches
+git config --global color.diff auto
+
+########getgit 
+git config --global color.status auto
+
+########
+git config --global color.branch auto
+
+######## Git utilisera Vim comme éditeur et Vimdiff comme outil de merge. Vous pouvez les modifier en utilisant
+git config --global core.editor notepad++
+
+########
+git config --global merge.tool vimdiff
+
+######## initialiser un depot #############
+git init
+
+######## Pointer sur un depot ################
+git remote add OC https://
+
+######## Cloner un depot ################
+git clone https://
+
+######## Afficher la liste des branches ###############
+git branch
+
+######## Ajouter une nouvelle branche ###############
+git branch Branche1 (Branche1 est le branche ajoutée)
+
+######## Pointer sur une branche ################
+git chechout Branche1
+
+######## Persiter le modifications sur le dépot local ################
+git commit -m "Commentaires"
+
+######## Supprimer une branche ################
+git branch -d "Nom de la Branche"
+
+######## Ajouter un fichier du Working directory dans le stage ################
+git add CommandeGIT.txt
+
+######## Connaitre le statut des fichiers dans un dépot ################
+git status
+
+######## Creer une remise ################
+git stash
+
+######## Appliquer la remise ################
+git stash apply
+
+######## Afficher la liste des remises ################
+git stash list
+
+######## Afficher par ordre chronologique inversé tous les commits réalisés ################
+######## L'identifiant du commit s'appelle le HASH #######
+git log
+git log --oneline --graph
+
+######## Supprimer le dernier commit en indiquant ^ ################
+######## Se positionner sur un commit en indiquant son HASH #######
+git reset --HEARD^
+get reset --HEARD (HASH i.e les huits premiers chiffres. Par exemple b47f8d88)
+
+
+######## Modifier le message ou le commentaire du dernier commit ################
+git commit --amend -m "Commentaires"
+
+######## Si on a oublié de prendre en compte un fichier dans notre commit, on peut l'ajouter en utilisant les commandes suivantes ################
+git add "Nom du fichier"
+git commit --amend --no-edit
+
+######## Se positionner sur un commit à partir de son HASH ################
+git reset Hash_du_commit
+
+######## le parent de head est designe par HEAD~ ################
+HEAD~
+
+######## Remonter le temps ################
+git revert HEAD~
+
+######## Historique de toutes les modifications d'un projet ################
+git reflog
+
+######## histotique des modifications sur un fichier ################
+git blame Nom_du_Fichier
+
+######## Fusionner plusieur commit ################
+git cherry-pick d356940 de966d4
+
+######## récupérer toutes les données des commits effectués sur la branche courante qui n'existent pas encore dans votre version en loca ################
+git fetch
+
+######## fusion de deux branche ################
+git merge
+
+######## Recupérer les modicications du depot distant vers le depot local ################
+git pull
+
+######## Envoyer les modicications du depot local vers le depot distant ################
+git push
+
+######## commit avec suppression des branches ################
+git rebase
+
+######## commit interactif #Option drop pour supprimer un commit #option squash pour fusionner des commits ################
+git rebase -i
+
+######## Supprimer une branche ################
+git branch -d brancheTest
+
+######## Retrouver le premier commit ou un bug est apparu ################
+git bisect start [bad][good]
+
+git submodule add https://github.com/etudiantOC/ProjetSubModule dossier/destination
+
+git subtree push -P monRépertoire git@mon-serveur-git:group/projet.git master
+
+git flow init
+
+### pour dire à GIT de ne pas untracked certains fichier ajouté dans mon depot, j'ajoute l'extension de ces fichiers dans le fichier .gitignore##"
+echo "*.log" >> .gitignore
+
+## pour untracked des fichiers déja commité. avec cette commande il va supprimer le fichier du repos local mais pas du workspace. si on enleve cached, il supprime qussi du workspace
+git rm -r --cached bug.txt
