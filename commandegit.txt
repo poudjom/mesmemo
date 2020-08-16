@@ -117,6 +117,8 @@ git rebase -i
 ######## Supprimer une branche ################
 git branch -d brancheTest
 
+git branch -D brancheTest  ###### POUR FORCER UNE MODIFICATION
+
 ######## Retrouver le premier commit ou un bug est apparu ################
 git bisect start [bad][good]
 
