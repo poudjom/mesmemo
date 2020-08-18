@@ -70,6 +70,11 @@ git log --oneline --graph
 git reset --HEARD^
 get reset --HEARD (HASH i.e les huits premiers chiffres. Par exemple b47f8d88)
 
+####### SUPPRIMER UN FICHIER DE LA ZONE DE STAGING ######################"
+git reset <fichier>
+
+####### SUPPRIMER TOUS LES FICHIES DE LA ZONE DE STAGING ############
+git reset
 
 ######## Modifier le message ou le commentaire du dernier commit ################
 git commit --amend -m "Commentaires"
