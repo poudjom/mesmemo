@@ -1,1 +1,21 @@
 ######### CREER UN PROJET DJANGO #######################
+django-admin startproject crepes_bretonnes
+
+####### POUR LANCER LE SERVEUR DE DEVELOPPEMENT ####################
+python manage.py runserver
+
+####### REDIRECTION VERS UNE AUTRE PAGE ###########################"
+from django.shortcuts import redirect
+return redirect(view_article, id_article=42)   ##### REDIRECTION AVEC PARAMÈTRES
+
+####### Les filtres #############################
+{{ texte|truncatewords:80 }}   ## TRONQUER UNE CHAINE DE CARACTÈRE
+{{ nb_messages }} message{{ nb_messages|pluralize }} #### METTRE UN TEXTE AU PLURIEL EN FONCTION D'UN NOMBRE
+{{ nb_chevaux }} chev{{ nb_chevaux|pluralize:"al,aux" }}
+{{ pseudo|default:"visiteur" }}
+
+######## LES TAGS #########################
+{% if %}     if, elif, else
+{% for %}    {% for cle, valeur in dictionnaire.items %}
+{% empty %}   ###Elle permet d’afficher un message par défaut si la liste parcourue est vide.
+{% block title %}Mon blog sur les crêpes bretonnes{% endblock %}
